@@ -1,4 +1,3 @@
-import './App.css'
 import {Generated} from "./Generated.tsx";
 
 function App() {

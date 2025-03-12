@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { PixelCard } from "./pixel-card"
 import { CollectibleItem } from "./collectible-item"
 
@@ -24,7 +23,7 @@ export function PortfolioItem({
       <h3 className="text-xl md:text-2xl font-bold text-green-400">{title}</h3>
 
       <div className="relative aspect-video w-full overflow-hidden border-4 border-pink-500">
-        <Image src={videoSrc || "/placeholder.svg"} alt={`${title} video`} fill className="object-cover pixel-image" />
+        <img src={videoSrc || "/placeholder.svg"} alt={`${title} video`} className="object-cover pixel-image" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-16 h-16 rounded-full bg-pink-500 bg-opacity-80 flex items-center justify-center">
             <div className="w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-white border-b-8 border-b-transparent ml-1"></div>

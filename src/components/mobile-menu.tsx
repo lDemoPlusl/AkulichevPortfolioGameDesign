@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
 import { Menu, X } from "lucide-react"
 
 export function MobileMenu() {
@@ -25,41 +24,41 @@ export function MobileMenu() {
             </button>
           </div>
           <nav className="flex flex-col items-center justify-center flex-1 space-y-8 text-xl">
-            <Link
+            <a
               href="#"
               className="text-white hover:text-yellow-300 transition-colors pixel-menu-item"
               onClick={() => setIsOpen(false)}
             >
               Email
-            </Link>
-            <Link
+            </a>
+            <a
               href="#"
               className="text-white hover:text-yellow-300 transition-colors pixel-menu-item"
               onClick={() => setIsOpen(false)}
             >
               Phone
-            </Link>
-            <Link
+            </a>
+            <a
               href="#"
               className="text-white hover:text-yellow-300 transition-colors pixel-menu-item"
               onClick={() => setIsOpen(false)}
             >
               Telegram
-            </Link>
-            <Link
+            </a>
+            <a
               href="#about"
               className="text-white hover:text-yellow-300 transition-colors pixel-menu-item"
               onClick={() => setIsOpen(false)}
             >
               About Me
-            </Link>
-            <Link
+            </a>
+            <a
               href="#portfolio"
               className="text-white hover:text-yellow-300 transition-colors pixel-menu-item"
               onClick={() => setIsOpen(false)}
             >
               Portfolio
-            </Link>
+            </a>
           </nav>
         </div>
       )}

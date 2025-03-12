@@ -11,6 +11,7 @@ import { ExperienceBar } from "./components/experience-bar"
 import { CollectibleItem } from "./components/collectible-item"
 import { QuestLog } from "./components/quest-log"
 import { ScrollArrow } from "./components/scroll-arrow"
+import './styles/globals.css'
 
 export const Generated = () => {
     return (<div className="min-h-screen bg-indigo-950 text-white font-pixel">
@@ -20,19 +21,19 @@ export const Generated = () => {
             <nav className="flex space-x-6">
                 <a href="#" className="text-white hover:text-yellow-300 transition-colors">
                     Email
-                <a/>
+                </a>
                 <a href="#" className="text-white hover:text-yellow-300 transition-colors">
                     Phone
-                <a/>
+                </a>
                 <a href="#" className="text-white hover:text-yellow-300 transition-colors">
                     Telegram
-                <a/>
+                </a>
                 <a href="#about" className="text-white hover:text-yellow-300 transition-colors">
                     About Me
-                <a/>
+                </a>
                 <a href="#portfolio" className="text-white hover:text-yellow-300 transition-colors">
                     Portfolio
-                <a/>
+                </a>
             </nav>
         </header>
 
@@ -60,13 +61,13 @@ export const Generated = () => {
                     <div className="flex flex-col md:flex-row justify-center space-y-3 md:space-y-0 md:space-x-4">
                         <a href="mailto:contact@yuriakulichev.com" className="text-green-400 hover:text-green-300">
                             contact@yuriakulichev.com
-                        <a/>
+                        </a>
                         <a href="tel:+1234567890" className="text-green-400 hover:text-green-300">
                             +123 456 7890
-                        <a/>
+                        </a>
                         <a href="https://t.me/yuriakulichev" className="text-green-400 hover:text-green-300">
                             @yuriakulichev
-                        <a/>
+                        </a>
                     </div>
                 </div>
 
