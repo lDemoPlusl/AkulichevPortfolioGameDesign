@@ -3,6 +3,7 @@ import { PixelCard } from "./pixel-card"
 import { PixelButton } from "./pixel-button"
 import { Scroll, CheckCircle2, Circle } from "lucide-react"
 import { cn } from "@/lib/utils"
+import {QUEST_TEXT_IN_POP_UP, QUESTS, QUESTS_TEXT} from "@/constants/quests";
 
 interface Quest {
   id: string
@@ -16,29 +17,7 @@ export function QuestLog() {
   const [isOpen, setIsOpen] = useState(false)
   const [hasUncompletedQuests, setHasUncompletedQuests] = useState(true)
   const [hasNewQuests, setHasNewQuests] = useState(true)
-  const [quests, setQuests] = useState<Quest[]>([
-    {
-      id: "explore",
-      title: "Portfolio Explorer",
-      description: "Visit all sections of the portfolio",
-      completed: false,
-      reward: "+20 XP",
-    },
-    {
-      id: "collect",
-      title: "Treasure Hunter",
-      description: "Find all hidden collectibles",
-      completed: false,
-      reward: "+30 XP",
-    },
-    {
-      id: "projects",
-      title: "Project Reviewer",
-      description: "View all portfolio projects",
-      completed: false,
-      reward: "+15 XP",
-    },
-  ])
+  const [quests, setQuests] = useState<Quest[]>(QUESTS)
 
   useEffect(() => {
     // Load saved quest progress
@@ -147,7 +126,7 @@ export function QuestLog() {
       >
         <Scroll className={cn("h-4 w-4", !isOpen && hasNewQuests && "animate-quest-icon-pulse")} />
         <span>
-          Quests {completedCount}/{quests.length}
+          {QUESTS_TEXT} {completedCount}/{quests.length}
         </span>
 
         {/* Notification dot for new quests */}
@@ -157,9 +136,9 @@ export function QuestLog() {
       </PixelButton>
 
       {isOpen && (
-        <div className="absolute z-30 top-full left-1/2 transform -translate-x-1/2 mt-4 w-full max-w-md">
+        <div className="absolute z-30 top-full left-1/2 transform -translate-x-1/2 mt-4">
           <PixelCard>
-            <h3 className="text-xl font-bold text-yellow-300 mb-4">Quest Log</h3>
+            <h3 className="text-xl font-bold text-yellow-300 mb-4">{QUEST_TEXT_IN_POP_UP}</h3>
             <div className="space-y-4">
               {quests.map((quest) => (
                 <div
