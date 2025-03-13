@@ -1,7 +1,6 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { Trophy, Star, Zap, Award, Medal } from "lucide-react"
+import {cn} from "@/lib/utils";
 
 // Replace the achievements array with this version that uses string identifiers instead of React elements
 const achievements = [

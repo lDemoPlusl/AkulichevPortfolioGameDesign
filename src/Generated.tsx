@@ -14,10 +14,10 @@ import { ScrollArrow } from "./components/scroll-arrow"
 import './styles/globals.css'
 
 export const Generated = () => {
-    return (<div className="min-h-screen bg-indigo-950 text-white font-pixel">
+    return <div className="min-h-screen bg-indigo-950 text-white font-pixel">
         {/* Desktop Header */}
         <header className="hidden md:flex items-center justify-between p-4 bg-indigo-900 border-b-4 border-pink-500">
-            <div className="text-xl font-bold text-pink-400">Yuri Akulichev</div>
+            <div className="text-xl font-bold text-pink-400">Yuri  Akulichev</div>
             <nav className="flex space-x-6">
                 <a href="#" className="text-white hover:text-yellow-300 transition-colors">
                     Email
@@ -154,5 +154,5 @@ export const Generated = () => {
             <p className="text-pink-400 font-bold">Yuri Akulichev</p>
             <p className="text-yellow-300">Game Designer</p>
         </footer>
-    </div>)
+    </div>
 }

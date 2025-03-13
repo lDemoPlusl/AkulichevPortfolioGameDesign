@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { PixelCard } from "./pixel-card"
 import { PixelButton } from "./pixel-button"
