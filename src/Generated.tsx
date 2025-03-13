@@ -1,6 +1,5 @@
 import {PixelButton} from "./components/pixel-button"
 import {PixelCard} from "./components/pixel-card"
-import {PixelAvatar} from "./components/pixel-avatar"
 import {PixelHeading} from "./components/pixel-heading"
 import {PixelDivider} from "./components/pixel-divider"
 import {PortfolioItem} from "./components/portfolio-item"
@@ -8,45 +7,22 @@ import {GameProgress} from "./components/game-progress"
 import {AchievementBadges} from "./components/achievement-badges"
 import {ExperienceBar} from "./components/experience-bar"
 import {CollectibleItem} from "./components/collectible-item"
-import {QuestLog} from "./components/quest-log"
 import {ScrollArrow} from "./components/scroll-arrow"
 import './styles/globals.css'
 import {Header} from "@/components/header";
+import {Hero} from "@/components/hero";
 
 export const Generated = () => {
     return <div className="min-h-screen bg-indigo-950 text-white font-pixel">
         <Header />
         {/* Game UI Overlay - Fixed Position */}
-        <div className="fixed top-4 right-4 z-40 md:top-20 md:right-6">
+        <div className="fixed z-40 top-14 right-4 md:top-20 md:right-6">
             <ExperienceBar />
         </div>
 
         <main className="container mx-auto px-4 py-8">
             {/* Hero Section */}
-            <section className="flex flex-col items-center text-center mb-16 mt-8">
-                <div className="relative mb-6">
-                    <PixelAvatar />
-                </div>
-                <h1 className="text-3xl md:text-4xl font-bold mb-2 text-pink-400">Yuri Akulichev</h1>
-                <h2 className="text-xl md:text-2xl mb-6 text-yellow-300 pixel-shadow">Game Designer</h2>
-
-                <div className="border-2 border-dashed border-pink-500 p-4 md:p-6 max-w-md mx-auto mb-8">
-                    <div className="flex flex-col md:flex-row justify-center space-y-3 md:space-y-0 md:space-x-4">
-                        <a href="mailto:contact@yuriakulichev.com" className="text-green-400 hover:text-green-300">
-                            contact@yuriakulichev.com
-                        </a>
-                        <a href="tel:+1234567890" className="text-green-400 hover:text-green-300">
-                            +123 456 7890
-                        </a>
-                        <a href="https://t.me/yuriakulichev" className="text-green-400 hover:text-green-300">
-                            @yuriakulichev
-                        </a>
-                    </div>
-                </div>
-
-                {/* Quest Log */}
-                <QuestLog />
-            </section>
+            <Hero />
 
             {/* Animated Portfolio Arrow */}
             <ScrollArrow targetId="portfolio" />

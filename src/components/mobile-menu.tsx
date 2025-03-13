@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
-import {BURGER_MENU} from "@/constants/burger-menu";
+import {BURGER_MENU} from "@/constants/links";
 
 export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false)

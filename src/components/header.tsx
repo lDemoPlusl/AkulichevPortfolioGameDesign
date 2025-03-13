@@ -1,6 +1,6 @@
 import {MobileMenu} from "@/components/mobile-menu";
 import {NAME} from "@/constants/name";
-import {BURGER_MENU} from "@/constants/burger-menu";
+import {BURGER_MENU} from "@/constants/links";
 
 export const Header = () => {
     return <>

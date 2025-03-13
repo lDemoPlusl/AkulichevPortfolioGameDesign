@@ -42,3 +42,22 @@ export const BURGER_MENU = [
         link: DICTIONARY_LINKS.PORTFOLIO,
     }
 ]
+
+export const HERO_LINKS = [
+    {
+        id: 1,
+        title: DICTIONARY_LINKS.EMAIL,
+        link: `mailto:${DICTIONARY_LINKS.EMAIL}`,
+    },
+    {
+        id: 2,
+        title: DICTIONARY_LINKS.PHONE,
+        link: `tel:${DICTIONARY_LINKS.PHONE}`,
+    },
+    {
+        id: 3,
+        title: DICTIONARY_LINKS.TELEGRAM,
+        link: `https://t.me/${DICTIONARY_LINKS.TELEGRAM}`,
+        target: '_blank',
+    },
+]
