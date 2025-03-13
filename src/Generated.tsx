@@ -1,48 +1,21 @@
-import { MobileMenu } from "./components/mobile-menu"
-import { PixelButton } from "./components/pixel-button"
-import { PixelCard } from "./components/pixel-card"
-import { PixelAvatar } from "./components/pixel-avatar"
-import { PixelHeading } from "./components/pixel-heading"
-import { PixelDivider } from "./components/pixel-divider"
-import { PortfolioItem } from "./components/portfolio-item"
-import { GameProgress } from "./components/game-progress"
-import { AchievementBadges } from "./components/achievement-badges"
-import { ExperienceBar } from "./components/experience-bar"
-import { CollectibleItem } from "./components/collectible-item"
-import { QuestLog } from "./components/quest-log"
-import { ScrollArrow } from "./components/scroll-arrow"
+import {PixelButton} from "./components/pixel-button"
+import {PixelCard} from "./components/pixel-card"
+import {PixelAvatar} from "./components/pixel-avatar"
+import {PixelHeading} from "./components/pixel-heading"
+import {PixelDivider} from "./components/pixel-divider"
+import {PortfolioItem} from "./components/portfolio-item"
+import {GameProgress} from "./components/game-progress"
+import {AchievementBadges} from "./components/achievement-badges"
+import {ExperienceBar} from "./components/experience-bar"
+import {CollectibleItem} from "./components/collectible-item"
+import {QuestLog} from "./components/quest-log"
+import {ScrollArrow} from "./components/scroll-arrow"
 import './styles/globals.css'
+import {Header} from "@/components/header";
 
 export const Generated = () => {
     return <div className="min-h-screen bg-indigo-950 text-white font-pixel">
-        {/* Desktop Header */}
-        <header className="hidden md:flex items-center justify-between p-4 bg-indigo-900 border-b-4 border-pink-500">
-            <div className="text-xl font-bold text-pink-400">Yuri  Akulichev</div>
-            <nav className="flex space-x-6">
-                <a href="#" className="text-white hover:text-yellow-300 transition-colors">
-                    Email
-                </a>
-                <a href="#" className="text-white hover:text-yellow-300 transition-colors">
-                    Phone
-                </a>
-                <a href="#" className="text-white hover:text-yellow-300 transition-colors">
-                    Telegram
-                </a>
-                <a href="#about" className="text-white hover:text-yellow-300 transition-colors">
-                    About Me
-                </a>
-                <a href="#portfolio" className="text-white hover:text-yellow-300 transition-colors">
-                    Portfolio
-                </a>
-            </nav>
-        </header>
-
-        {/* Mobile Header */}
-        <header className="md:hidden flex items-center justify-between p-4 bg-indigo-900 border-b-4 border-pink-500">
-            <div className="text-xl font-bold text-pink-400">Yuri Akulichev</div>
-            <MobileMenu />
-        </header>
-
+        <Header />
         {/* Game UI Overlay - Fixed Position */}
         <div className="fixed top-4 right-4 z-40 md:top-20 md:right-6">
             <ExperienceBar />
