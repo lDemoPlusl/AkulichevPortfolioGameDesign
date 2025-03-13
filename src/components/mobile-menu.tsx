@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
+import {BURGER_MENU} from "@/constants/burger-menu";
 
 export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,41 +23,7 @@ export function MobileMenu() {
             </button>
           </div>
           <nav className="flex flex-col items-center justify-center flex-1 space-y-8 text-xl">
-            <a
-              href="#"
-              className="text-white hover:text-yellow-300 transition-colors pixel-menu-item"
-              onClick={() => setIsOpen(false)}
-            >
-              Email
-            </a>
-            <a
-              href="#"
-              className="text-white hover:text-yellow-300 transition-colors pixel-menu-item"
-              onClick={() => setIsOpen(false)}
-            >
-              Phone
-            </a>
-            <a
-              href="#"
-              className="text-white hover:text-yellow-300 transition-colors pixel-menu-item"
-              onClick={() => setIsOpen(false)}
-            >
-              Telegram
-            </a>
-            <a
-              href="#about"
-              className="text-white hover:text-yellow-300 transition-colors pixel-menu-item"
-              onClick={() => setIsOpen(false)}
-            >
-              About Me
-            </a>
-            <a
-              href="#portfolio"
-              className="text-white hover:text-yellow-300 transition-colors pixel-menu-item"
-              onClick={() => setIsOpen(false)}
-            >
-              Portfolio
-            </a>
+              {BURGER_MENU.map(({id, title, link, target}) => <a href={link} target={target} className="text-white hover:text-yellow-300 transition-colors pixel-menu-item" key={id} onClick={() => setIsOpen(false)}>{title}</a>)}
           </nav>
         </div>
       )}
