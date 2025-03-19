@@ -12,6 +12,7 @@ import './styles/globals.css'
 import {Header} from "@/components/header";
 import {Hero} from "@/components/hero";
 import {DICTIONARY_CONTENT} from "@/constants/links";
+import {ABOUT_ME, DOWNLOAD_RESUME} from "@/constants/about-me";
 
 export const Generated = () => {
     return <div className="min-h-screen bg-indigo-950 text-white font-pixel">
@@ -33,12 +34,10 @@ export const Generated = () => {
                 <PixelCard>
                     <PixelHeading>{DICTIONARY_CONTENT.ABOUT_ME}</PixelHeading>
                     <p className="mb-6 leading-relaxed">
-                        I'm a passionate game designer with 5+ years of experience creating engaging player experiences. My
-                        expertise lies in level design, game mechanics, and narrative development. I believe games should be both
-                        challenging and rewarding, creating memorable moments that players cherish.
+                        {ABOUT_ME}
                     </p>
                     <div className="flex justify-center">
-                        <PixelButton>Download Resume</PixelButton>
+                        <a href='./cv.pdf'><PixelButton>{DOWNLOAD_RESUME}</PixelButton></a>
                     </div>
 
                     {/* Collectible Item */}
