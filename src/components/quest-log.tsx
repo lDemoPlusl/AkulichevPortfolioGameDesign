@@ -136,7 +136,7 @@ export function QuestLog() {
       </PixelButton>
 
       {isOpen && (
-        <div className="absolute z-30 top-full left-1/2 transform -translate-x-1/2 mt-4">
+        <div className="absolute z-30 top-full left-1/2 transform -translate-x-1/2 mt-4 md:w-max">
           <PixelCard>
             <h3 className="text-xl font-bold text-yellow-300 mb-4">{QUEST_TEXT_IN_POP_UP}</h3>
             <div className="space-y-4">
@@ -153,7 +153,7 @@ export function QuestLog() {
                         <Circle className={cn("h-5 w-5 text-yellow-400", !quest.completed && "animate-pulse")} />
                       )}
                     </div>
-                    <div>
+                    <div className='md:text-left'>
                       <h4 className="font-bold">{quest.title}</h4>
                       <p className="text-sm text-gray-300">{quest.description}</p>
                       <div className="text-xs mt-1 font-bold text-green-400">

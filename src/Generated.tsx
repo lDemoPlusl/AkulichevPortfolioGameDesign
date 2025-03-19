@@ -11,6 +11,7 @@ import {ScrollArrow} from "./components/scroll-arrow"
 import './styles/globals.css'
 import {Header} from "@/components/header";
 import {Hero} from "@/components/hero";
+import {DICTIONARY_CONTENT} from "@/constants/links";
 
 export const Generated = () => {
     return <div className="min-h-screen bg-indigo-950 text-white font-pixel">
@@ -30,7 +31,7 @@ export const Generated = () => {
             {/* About Section */}
             <section id="about" className="mb-16">
                 <PixelCard>
-                    <PixelHeading>About Me</PixelHeading>
+                    <PixelHeading>{DICTIONARY_CONTENT.ABOUT_ME}</PixelHeading>
                     <p className="mb-6 leading-relaxed">
                         I'm a passionate game designer with 5+ years of experience creating engaging player experiences. My
                         expertise lies in level design, game mechanics, and narrative development. I believe games should be both

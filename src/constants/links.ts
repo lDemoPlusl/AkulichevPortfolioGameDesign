@@ -1,4 +1,4 @@
-const DICTIONARY_CONTENT = {
+export const DICTIONARY_CONTENT = {
     TELEGRAM: 'Telegram',
     EMAIL: 'Email',
     PHONE: 'Телефон',
