@@ -1,9 +1,7 @@
 import {PixelButton} from "./components/pixel-button"
 import {PixelCard} from "./components/pixel-card"
 import {PixelHeading} from "./components/pixel-heading"
-import {PixelDivider} from "./components/pixel-divider"
-import {PortfolioItem} from "./components/portfolio-item"
-import {GameProgress} from "./components/game-progress"
+import {Portfolio} from "./components/portfolio"
 import {AchievementBadges} from "./components/achievement-badges"
 import {ExperienceBar} from "./components/experience-bar"
 import {CollectibleItem} from "./components/collectible-item"
@@ -12,17 +10,20 @@ import './styles/globals.css'
 import {Header} from "@/components/header";
 import {Hero} from "@/components/hero";
 import {DICTIONARY_CONTENT} from "@/constants/links";
-import {ABOUT_ME, DOWNLOAD_RESUME} from "@/constants/about-me";
+import {ABOUT_ME, DOWNLOAD_RESUME, IS_OPEN_CV_IN_NEW_TAB} from "@/constants/about-me";
+import {PORTFOLIO_ITEMS} from "@/constants/portfolio";
+import {NAME} from "@/constants/name";
+import {POSITION} from "@/constants/position";
 
 export const Generated = () => {
-    return <div className="min-h-screen bg-indigo-950 text-white font-pixel">
+    return <div className="min-h-screen bg-indigo-950 text-white font-pixel font-mono">
         <Header />
         {/* Game UI Overlay - Fixed Position */}
         <div className="fixed z-40 top-14 right-4 md:top-20 md:right-6">
             <ExperienceBar />
         </div>
 
-        <main className="container mx-auto px-4 py-8">
+        <main className="container mx-auto px-4 pb-8 pt-20">
             {/* Hero Section */}
             <Hero />
 
@@ -37,7 +38,7 @@ export const Generated = () => {
                         {ABOUT_ME}
                     </p>
                     <div className="flex justify-center">
-                        <a href='./cv.pdf'><PixelButton>{DOWNLOAD_RESUME}</PixelButton></a>
+                        <a href='./cv.pdf' target={IS_OPEN_CV_IN_NEW_TAB ? '_blank' : undefined}><PixelButton>{DOWNLOAD_RESUME}</PixelButton></a>
                     </div>
 
                     {/* Collectible Item */}
@@ -51,57 +52,12 @@ export const Generated = () => {
             </section>
 
             {/* Portfolio Section */}
-            <section id="portfolio" className="mb-16">
-                <PixelHeading className="text-center mb-8">Portfolio</PixelHeading>
-
-                {/* Game Progress */}
-                <GameProgress className="mb-8" />
-
-                <PortfolioItem
-                    title="Pixel Dungeon Crawler"
-                    videoSrc="/placeholder.svg?height=315&width=560"
-                    description="A roguelike dungeon crawler with procedurally generated levels and pixel art aesthetics."
-                    responsibilities={[
-                        "Game mechanics design",
-                        "Level progression system",
-                        "Enemy AI behavior patterns",
-                        "Balancing difficulty curves",
-                    ]}
-                    achievements={[
-                        "100,000+ downloads on Steam",
-                        "Featured in Indie Game Showcase 2024",
-                        "9/10 average user rating",
-                        "Nominated for Best Game Design at Pixel Awards",
-                    ]}
-                    collectibleId="project1-coin"
-                />
-
-                <PixelDivider className="my-12" />
-
-                <PortfolioItem
-                    title="Space Colony Simulator"
-                    videoSrc="/placeholder.svg?height=315&width=560"
-                    description="A strategy simulation game where players build and manage their own space colony."
-                    responsibilities={[
-                        "Resource management systems",
-                        "Colony expansion mechanics",
-                        "Character progression",
-                        "Event scripting and narrative design",
-                    ]}
-                    achievements={[
-                        "Early Access success with 50,000+ players",
-                        "Positive community engagement",
-                        "Featured on major gaming publications",
-                        "Successfully implemented player feedback",
-                    ]}
-                    collectibleId="project2-coin"
-                />
-            </section>
+            <Portfolio items={PORTFOLIO_ITEMS} />
         </main>
 
         <footer className="bg-indigo-900 border-t-4 border-pink-500 py-4 text-center">
-            <p className="text-pink-400 font-bold">Yuri Akulichev</p>
-            <p className="text-yellow-300">Game Designer</p>
+            <p className="text-pink-400 font-bold">{NAME}</p>
+            <p className="text-yellow-300">{POSITION}</p>
         </footer>
     </div>
 }

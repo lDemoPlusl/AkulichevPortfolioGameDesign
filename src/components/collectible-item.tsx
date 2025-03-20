@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
+import {Gamepad2} from "lucide-react";
 
 interface CollectibleItemProps {
   id: string
@@ -43,11 +44,11 @@ export function CollectibleItem({ id, className }: CollectibleItemProps) {
   if (collected) return null
 
   return (
-    <div className={cn("w-8 h-8 cursor-pointer animate-float", className)} onClick={handleCollect}>
+    <div className={cn("size-10 cursor-pointer animate-float", className)} onClick={handleCollect}>
       <div className="w-full h-full relative">
         <div className="absolute inset-0 bg-yellow-400 rounded-full opacity-20 animate-pulse"></div>
         <div className="absolute inset-1 bg-yellow-400 rounded-full flex items-center justify-center text-indigo-900 font-bold text-xs">
-          ?
+          <Gamepad2 size={24} />
         </div>
       </div>
     </div>

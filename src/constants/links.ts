@@ -56,7 +56,7 @@ export const HERO_LINKS = [
     },
     {
         id: 3,
-        title: DICTIONARY_LINKS.TELEGRAM,
+        title: `@${DICTIONARY_LINKS.TELEGRAM}`,
         link: `https://t.me/${DICTIONARY_LINKS.TELEGRAM}`,
         target: '_blank',
     },

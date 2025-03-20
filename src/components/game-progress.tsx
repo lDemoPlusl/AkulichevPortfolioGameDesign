@@ -28,7 +28,7 @@ export function GameProgress({ className }: GameProgressProps) {
       // Check achievements
       const achievements = JSON.parse(localStorage.getItem("portfolioAchievements") || "[]")
       const unlockedAchievements = achievements.filter((a: any) => a.unlocked)
-      total += (unlockedAchievements.length / achievements.length) * 30 // 30% for unlocking all achievements
+      total += (unlockedAchievements.length / achievements.length) * 30 || 0 // 30% for unlocking all achievements
 
       setProgress(Math.min(Math.round(total), 100))
     }

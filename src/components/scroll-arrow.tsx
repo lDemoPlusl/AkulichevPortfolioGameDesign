@@ -45,12 +45,6 @@ export function ScrollArrow({ targetId, label = "Portfolio" }: ScrollArrowProps)
             <ChevronDown className="h-6 w-6 text-white" />
           </div>
           <div className="absolute inset-0 bg-pink-500 rounded-full animate-ping opacity-30"></div>
-
-          {/* Pixel art decorative elements */}
-          <div className="absolute -left-1 -top-1 w-2 h-2 bg-yellow-400"></div>
-          <div className="absolute -right-1 -top-1 w-2 h-2 bg-yellow-400"></div>
-          <div className="absolute -left-1 -bottom-1 w-2 h-2 bg-yellow-400"></div>
-          <div className="absolute -right-1 -bottom-1 w-2 h-2 bg-yellow-400"></div>
         </div>
       </div>
     </div>

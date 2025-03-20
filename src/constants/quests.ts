@@ -17,7 +17,7 @@ export const QUESTS = [
         id: "projects",
         title: "Охотник за сокровищами",
         description: "Написать кондидату с предложением о работе",
-        completed: false,
+        completed: true,
         reward: "+50 XP",
     },
 ]
