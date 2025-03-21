@@ -7,7 +7,7 @@ export const PortfolioItem = ({cards, title, description, videFileName }: TPortf
         <h3 className="text-xl md:text-2xl font-bold text-green-400">{title}</h3>
 
         <div className="relative aspect-video w-full overflow-hidden border-4 border-pink-500">
-            <video controls>
+            <video controls className='size-full'>
                 <source src={`videos/${videFileName}`} type="video/mp4"/>
                 Your browser does not support the video tag.
             </video>
