@@ -1,7 +1,7 @@
-import {TPortfolio} from "@/types/portfolio";
+import {TPortfolioItem} from "@/types/portfolio";
 import {PortfolioItems} from "@/components/portolio-achievement";
 
-export const PortfolioItem = ({cards, title, description, videFileName }: TPortfolio['items']) => {
+export const PortfolioItem = ({cards, title, description, videFileName }: TPortfolioItem) => {
 
     return <div className="space-y-6 relative">
         <h3 className="text-xl md:text-2xl font-bold text-green-400">{title}</h3>
