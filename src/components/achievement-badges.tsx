@@ -1,45 +1,7 @@
-import { useState, useEffect } from "react"
-import { Trophy, Star, Zap, Award, Medal } from "lucide-react"
+import {useEffect, useState} from "react"
+import {Award, Gamepad2, Medal, Star, Trophy} from "lucide-react"
 import {cn} from "@/lib/utils";
-
-// Replace the achievements array with this version that uses string identifiers instead of React elements
-const achievements = [
-  {
-    id: "visitor",
-    name: "First Contact",
-    description: "Visited the portfolio website",
-    iconType: "trophy",
-    unlocked: true,
-  },
-  {
-    id: "explorer",
-    name: "Explorer",
-    description: "Viewed all sections of the portfolio",
-    iconType: "star",
-    unlocked: false,
-  },
-  {
-    id: "collector",
-    name: "Collector",
-    description: "Found all hidden collectibles",
-    iconType: "zap",
-    unlocked: false,
-  },
-  {
-    id: "scholar",
-    name: "Scholar",
-    description: "Read all project descriptions",
-    iconType: "award",
-    unlocked: false,
-  },
-  {
-    id: "master",
-    name: "Portfolio Master",
-    description: "Reached level 3",
-    iconType: "medal",
-    unlocked: false,
-  },
-]
+import {ARCHIVEMENTS} from "@/constants/archivements";
 
 // Add this function to render the appropriate icon based on iconType
 const renderIcon = (iconType: string) => {
@@ -48,8 +10,8 @@ const renderIcon = (iconType: string) => {
       return <Trophy className="h-5 w-5" />
     case "star":
       return <Star className="h-5 w-5" />
-    case "zap":
-      return <Zap className="h-5 w-5" />
+    case "gamepad2":
+      return <Gamepad2 className="h-5 w-5" />
     case "award":
       return <Award className="h-5 w-5" />
     case "medal":
@@ -60,9 +22,9 @@ const renderIcon = (iconType: string) => {
 }
 
 export function AchievementBadges() {
-  const [userAchievements, setUserAchievements] = useState(achievements)
+  const [userAchievements, setUserAchievements] = useState(ARCHIVEMENTS.cards)
   const [showNotification, setShowNotification] = useState(false)
-  const [newAchievement, setNewAchievement] = useState<(typeof achievements)[0] | null>(null)
+  const [newAchievement, setNewAchievement] = useState<(typeof ARCHIVEMENTS.cards)[0] | null>(null)
 
   useEffect(() => {
     // Load saved achievements from localStorage
@@ -136,8 +98,8 @@ export function AchievementBadges() {
       localStorage.setItem("portfolioAchievements", JSON.stringify(updated))
 
       // Show notification for newly unlocked achievement
-      const newlyUnlocked = updated.find((a) => a.id === id && a.unlocked)
-      if (newlyUnlocked && !prev.find((a) => a.id === id)?.unlocked) {
+      const newlyUnlocked = updated.find((a) => a.id === id && a.initialUnlocked)
+      if (newlyUnlocked && !prev.find((a) => a.id === id)?.initialUnlocked) {
         setNewAchievement(newlyUnlocked)
         setShowNotification(true)
         setTimeout(() => setShowNotification(false), 3000)
@@ -149,14 +111,14 @@ export function AchievementBadges() {
 
   return (
     <div>
-      <h3 className="text-xl font-bold text-yellow-300 mb-4">Achievements</h3>
+      <h3 className="text-xl font-bold text-yellow-300 mb-4">{ARCHIVEMENTS.name}</h3>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
         {userAchievements.map((achievement) => (
           <div
             key={achievement.id}
             className={cn(
               "flex flex-col items-center justify-center p-3 rounded-lg text-center transition-all",
-              achievement.unlocked
+              achievement.initialUnlocked
                 ? "bg-indigo-800 border-2 border-yellow-400"
                 : "bg-indigo-900/50 border-2 border-gray-700 opacity-50",
             )}
@@ -164,7 +126,7 @@ export function AchievementBadges() {
             <div
               className={cn(
                 "w-10 h-10 rounded-full flex items-center justify-center mb-2",
-                achievement.unlocked ? "bg-yellow-400 text-indigo-900" : "bg-gray-700 text-gray-500",
+                achievement.initialUnlocked ? "bg-yellow-400 text-indigo-900" : "bg-gray-700 text-gray-500",
               )}
             >
               {renderIcon(achievement.iconType)}
