@@ -1,0 +1,1 @@
+export const PORTFOLIO_POPUP_BUTTON_TEXT = 'Портфолио'
