@@ -38,7 +38,9 @@ export const Generated = () => {
                         {ABOUT_ME}
                     </p>
                     <div className="flex justify-center">
-                        <a href='./cv.pdf' target={IS_OPEN_CV_IN_NEW_TAB ? '_blank' : undefined}><PixelButton>{DOWNLOAD_RESUME}</PixelButton></a>
+                        <a href='./cv.pdf' target={IS_OPEN_CV_IN_NEW_TAB ? '_blank' : undefined}>
+                            <PixelButton className='cursor-pointer'>{DOWNLOAD_RESUME}</PixelButton>
+                        </a>
                     </div>
 
                     {/* Collectible Item */}

@@ -122,7 +122,7 @@ export function QuestLog() {
       <PixelButton
         variant="secondary"
         onClick={handleOpenQuestLog}
-        className={cn("flex items-center gap-2 relative", !isOpen && hasUncompletedQuests && "animate-quest-pulse")}
+        className={cn("flex items-center gap-2 relative cursor-pointer", !isOpen && hasUncompletedQuests && "animate-quest-pulse")}
       >
         <Scroll className={cn("h-4 w-4", !isOpen && hasNewQuests && "animate-quest-icon-pulse")} />
         <span>
