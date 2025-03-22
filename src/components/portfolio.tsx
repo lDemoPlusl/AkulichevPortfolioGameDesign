@@ -6,7 +6,7 @@ import {TPortfolio} from "@/types/portfolio";
 
 
 export function Portfolio({items}: TPortfolio) {
-  const {title, items: cards} = items;
+  const {title, items: cards, videoPathPrefix} = items;
 
   return (
       <section id="portfolio" className="mb-16">
@@ -15,8 +15,8 @@ export function Portfolio({items}: TPortfolio) {
         {/* Game Progress */}
         <GameProgress className="mb-8" />
 
-        {cards.map((item, index) => (<>
-            <PortfolioItem key={index} {...item}  />
+        {cards.map(({ cards, title, description, videoFileName }, index) => (<>
+            <PortfolioItem key={index} cards={cards} title={title} description={description} videoSrc={`${videoPathPrefix}${videoFileName}`}  />
             {index + 1 !== cards.length && <PixelDivider className="my-12" />}
         </>))}
       </section>

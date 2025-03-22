@@ -1,14 +1,18 @@
 import {TPortfolioItem} from "@/types/portfolio";
 import {PortfolioItems} from "@/components/portolio-achievement";
 
-export const PortfolioItem = ({cards, title, description, videFileName }: TPortfolioItem) => {
+type Props = Omit<TPortfolioItem, 'videoFileName'> & {
+    videoSrc: string;
+};
+
+export const PortfolioItem = ({cards, title, description, videoSrc }: Props) => {
 
     return <div className="space-y-6 relative">
         <h3 className="text-xl md:text-2xl font-bold text-green-400">{title}</h3>
 
         <div className="relative aspect-video w-full overflow-hidden border-4 border-pink-500">
             <video controls className='size-full'>
-                <source src={`videos/${videFileName}`} type="video/mp4"/>
+                <source src={videoSrc} type="video/mp4"/>
                 Your browser does not support the video tag.
             </video>
             {/*<img src={videoSrc || "/placeholder.svg"} alt={`${description} video`}*/}

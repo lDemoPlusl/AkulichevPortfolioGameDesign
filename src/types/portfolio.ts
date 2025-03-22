@@ -7,12 +7,13 @@ export type TPortfolioItemCard = {
 export type TPortfolioItem = {
     title: string;
     description: string;
-    videFileName: string;
+    videoFileName: string;
     cards: TPortfolioItemCard[];
 };
 
 export type TPortfolio = {
     items: {
+        videoPathPrefix: string;
         title: string;
         items: TPortfolioItem[];
     }

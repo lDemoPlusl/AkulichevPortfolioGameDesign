@@ -1,10 +1,11 @@
 export const PORTFOLIO_ITEMS = {
+    videoPathPrefix: '/videos/',
     title: 'Портфолио',
     items: [
         {
             title: 'FIRE RAGE',
             description: 'FIRE RAGE — многопользовательский VR-шутер, разработанный для VR-арен.\nhttps://fire-rage.ru/',
-            videFileName: 'fire-rage.mp4',
+            videoFileName: 'fire-rage.mp4',
             cards: [
                 {
                     title: 'Обязанности:',
@@ -21,7 +22,7 @@ export const PORTFOLIO_ITEMS = {
         {
             title: 'VR Moving Platform (5D)',
             description: 'VR Moving Platform (5D) — подвижный VR-аттракцион в формате американских горок, создающий эффект полного погружения.',
-            videFileName: 'vr-moving-platform.mp4',
+            videoFileName: 'vr-moving-platform.mp4',
             cards: [
                 {
                     title: 'Обязанности:',
@@ -38,7 +39,7 @@ export const PORTFOLIO_ITEMS = {
         {
             title: 'Foulbreaker',
             description: 'Foulbreaker — roguelike-игра с фокусом на реиграбельность. \nПрисоединился к проекту для помощи в качестве гейм-дизайнера.',
-            videFileName: 'foulbreaker.mp4',
+            videoFileName: 'foulbreaker.mp4',
             cards: [
                 {
                     title: 'Обязанности:',
@@ -55,7 +56,7 @@ export const PORTFOLIO_ITEMS = {
         {
             title: 'ASRP (Role Play) проект',
             description: 'ASRP — ролевой (Role Play) проект. Присоединился к команде в качестве гейм-мастера, отвечая за поддержку RP-атмосферы и вовлечение игроков.',
-            videFileName: 'asrp.mp4',
+            videoFileName: 'asrp.mp4',
             cards: [
                 {
                     title: 'Обязанности:',
