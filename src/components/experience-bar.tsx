@@ -15,7 +15,7 @@ export function ExperienceBar() {
 
     // Set up scroll event listener to increase XP as user scrolls
     const handleScroll = () => {
-      const scrollPercentage = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 102
+      const scrollPercentage = (window.scrollY / (document.body.scrollHeight * 0.99 - window.innerHeight)) * 100
       const newXp = Math.min(Math.floor(scrollPercentage), maxXp)
 
       if (newXp > xp) {
