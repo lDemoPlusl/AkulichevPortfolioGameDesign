@@ -19,7 +19,7 @@ export const Generated = () => {
     return <div className="min-h-screen bg-indigo-950 text-white font-pixel font-mono scroll-smooth">
         <Header />
         {/* Game UI Overlay - Fixed Position */}
-        <div className="fixed z-40 top-14 right-4 md:top-20 md:right-6">
+        <div className="fixed z-40 top-20 right-4 md:top-20 md:right-6">
             <ExperienceBar />
         </div>
 

@@ -14,7 +14,7 @@ export function Portfolio({items}: TPortfolio) {
         <PixelHeading className="text-center mb-8">{title}</PixelHeading>
 
         {/* Game Progress */}
-        <GameProgress className="mb-8" />
+        {/*<GameProgress className="mb-8" />*/}
 
         {portfolioItems.map(({ cards, title, description, videoFileName, id }, index) =>
             (<Fragment key={id}>

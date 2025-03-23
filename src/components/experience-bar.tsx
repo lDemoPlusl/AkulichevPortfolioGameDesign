@@ -44,12 +44,12 @@ export function ExperienceBar() {
   return (
     <div className="bg-indigo-900 border-2 border-pink-500 p-2 rounded-lg shadow-lg">
       <div className="flex items-center mb-1">
-        <div className="bg-yellow-400 text-indigo-900 font-bold text-xs px-2 py-1 rounded-md mr-2">LVL {level}</div>
-        <div className="text-xs text-yellow-300">
-          XP: {xp}/{maxXp}
+        <div className="bg-yellow-400 text-indigo-900 font-bold text-xs px-2 py-1 rounded-md mr-2">Исследование </div>
+        <div className="text-xs text-yellow-300 font-bold">
+          50%
         </div>
       </div>
-      <div className="w-32 h-3 bg-indigo-800 rounded-full overflow-hidden">
+      <div className="w-full h-3 bg-indigo-800 rounded-full overflow-hidden">
         <div
           className="h-full bg-gradient-to-r from-green-400 to-yellow-300 transition-all duration-300 ease-out"
           style={{ width: `${xp}%` }}

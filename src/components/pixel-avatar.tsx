@@ -1,12 +1,13 @@
 import {NAME} from "@/constants/name";
 import {LEVEL_TEXT} from "@/constants/level-text";
+import {LINK_TO_PERSONAL_PHOTO} from "@/constants/link-to-personal-photo";
 
 export function PixelAvatar() {
   return (
     <div className="relative">
       <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-pink-500 relative">
         <img
-          src="/personal-photo.png"
+          src={LINK_TO_PERSONAL_PHOTO}
           alt={NAME}
           className="pixel-image size-40 object-cover"
         />

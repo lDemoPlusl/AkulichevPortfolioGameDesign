@@ -1,0 +1,1 @@
+export const LINK_TO_PERSONAL_PHOTO = '/personal-photo.webp';
