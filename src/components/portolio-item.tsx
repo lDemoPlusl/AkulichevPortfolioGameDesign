@@ -1,13 +1,15 @@
 import {TPortfolioItem} from "@/types/portfolio";
 import {PortfolioItems} from "@/components/portolio-achievement";
+import {CollectibleItem} from "@/components/collectible-item";
 
 type Props = Omit<TPortfolioItem, 'videoFileName'> & {
     videoSrc: string;
 };
 
-export const PortfolioItem = ({cards, title, description, videoSrc }: Props) => {
+export const PortfolioItem = ({cards, title, description, videoSrc, id }: Props) => {
 
     return <div className="space-y-6 relative">
+        <CollectibleItem id={id} className="absolute top-0.5 right-0" />
         <h3 className="text-xl md:text-2xl font-bold text-green-400">{title}</h3>
 
         <div className="relative aspect-video w-full overflow-hidden border-4 border-pink-500">
@@ -25,6 +27,5 @@ export const PortfolioItem = ({cards, title, description, videoSrc }: Props) => 
             {cards.map(({title, items, icon}, index) => <PortfolioItems title={title} key={index} items={items} icon={icon} />)}
         </div>
 
-        {/*{collectibleId && <CollectibleItem id={collectibleId} className="absolute top-0 right-0" />}*/}
     </div>
 }

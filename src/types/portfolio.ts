@@ -8,6 +8,7 @@ export type TPortfolioItem = {
     title: string;
     description: string;
     videoFileName: string;
+    id: string;
     cards: TPortfolioItemCard[];
 };
 

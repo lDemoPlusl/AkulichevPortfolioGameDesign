@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
+import {PORTFOLIO_ITEMS} from "@/constants/portfolio";
 
 interface GameProgressProps {
   className?: string
@@ -22,7 +23,7 @@ export function GameProgress({ className }: GameProgressProps) {
 
       // Check collectibles
       const collectedItems = JSON.parse(localStorage.getItem("collectedItems") || "[]")
-      const totalCollectibles = 3 // Total number of collectibles on the page
+      const totalCollectibles = PORTFOLIO_ITEMS.items.length // Total number of collectibles on the page
       total += (collectedItems.length / totalCollectibles) * 30 // 30% for collecting all items
 
       // Check achievements
