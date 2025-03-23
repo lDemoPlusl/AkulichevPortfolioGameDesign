@@ -5,7 +5,7 @@ export const ARCHIVEMENTS = {
             id: "visitor",
             name: "Первый контакт",
             description: "Посетил сайт портфолио",
-            unlocked: true,
+            unlocked: false,
             iconType: "trophy",
         },
         {

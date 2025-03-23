@@ -52,7 +52,11 @@ export function AchievementBadges() {
     // Load saved achievements from localStorage
     const savedAchievements = localStorage.getItem("portfolioAchievements")
     if (savedAchievements) {
-      setUserAchievements(JSON.parse(savedAchievements))
+      const parsedAchievements = JSON.parse(savedAchievements);
+      setUserAchievements(parsedAchievements);
+
+    } else {
+      unlockAchievement("visitor")
     }
 
     // Set up event listeners for achievement triggers
