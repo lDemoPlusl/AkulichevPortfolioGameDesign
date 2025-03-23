@@ -83,35 +83,25 @@ export function AchievementBadges() {
       }
     }
 
-    // Check if sections are visible for a certain time
-    const handleVisibility = () => {
-      const sections = document.querySelectorAll(".portfolio-item")
-      let viewedCount = 0
+    const handleVideosHaveWatched = (e: CustomEvent) => {
+      const collectedCount = e.detail.count;
+      const numberOfAllCollectibleItems = PORTFOLIO_ITEMS.items.length;
 
-      sections.forEach((section) => {
-        const rect = section.getBoundingClientRect()
-        const isVisible = rect.top < window.innerHeight && rect.bottom >= 0
-
-        if (isVisible) {
-          viewedCount++
-        }
-      })
-
-      if (viewedCount >= 2) {
+      if (collectedCount === numberOfAllCollectibleItems) {
         unlockAchievement("scholar")
       }
     }
 
     window.addEventListener("scroll", handleScroll)
-    window.addEventListener("scroll", handleVisibility)
     window.addEventListener("collectibleFound", handleCollectibleFound as EventListener)
     window.addEventListener("levelUp", handleLevelUp as EventListener)
+    window.addEventListener("videosHaveWatched", handleVideosHaveWatched as EventListener)
 
     return () => {
       window.removeEventListener("scroll", handleScroll)
-      window.removeEventListener("scroll", handleVisibility)
       window.removeEventListener("collectibleFound", handleCollectibleFound as EventListener)
       window.removeEventListener("levelUp", handleLevelUp as EventListener)
+      window.removeEventListener("videosHaveWatched", handleVideosHaveWatched as EventListener)
     }
   }, [])
 
