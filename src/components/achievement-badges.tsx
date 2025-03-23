@@ -2,6 +2,7 @@ import {useEffect, useState} from "react"
 import {Award, Gamepad2, Medal, Star, Trophy} from "lucide-react"
 import {cn} from "@/lib/utils";
 import {ARCHIVEMENTS} from "@/constants/archivements";
+import {PORTFOLIO_ITEMS} from "@/constants/portfolio";
 
 // Add this function to render the appropriate icon based on iconType
 const renderIcon = (iconType: string) => {
@@ -26,6 +27,27 @@ export function AchievementBadges() {
   const [showNotification, setShowNotification] = useState(false)
   const [newAchievement, setNewAchievement] = useState<(typeof ARCHIVEMENTS.cards)[0] | null>(null)
 
+  const unlockAchievement = (id: string) => {
+    setUserAchievements((prev) => {
+      const updated = prev.map((achievement) =>
+          achievement.id === id ? { ...achievement, unlocked: true } : achievement,
+      );
+
+      // Save to localStorage
+      localStorage.setItem("portfolioAchievements", JSON.stringify(updated))
+
+      // Show notification for newly unlocked achievement
+      const newlyUnlocked = updated.find((a) => a.id === id && a.unlocked)
+      if (newlyUnlocked && !prev.find((a) => a.id === id)?.unlocked) {
+        setNewAchievement(newlyUnlocked)
+        setShowNotification(true)
+        setTimeout(() => setShowNotification(false), 3000)
+      }
+
+      return updated
+    })
+  }
+
   useEffect(() => {
     // Load saved achievements from localStorage
     const savedAchievements = localStorage.getItem("portfolioAchievements")
@@ -44,14 +66,19 @@ export function AchievementBadges() {
     }
 
     const handleCollectibleFound = (e: CustomEvent) => {
-      const collectedCount = e.detail.count
-      if (collectedCount >= 3) {
+      const collectedCount = e.detail.count;
+
+      const numberOfAllCollectibleItems = PORTFOLIO_ITEMS.items.length + 1;
+      // numberOfAllCollectibleItems рассчитывается из колличества элементов портфолио(т.к. на каждом элементе портфолио есть иконка) + 1 иконка в разделе обо мне.
+      if (collectedCount === numberOfAllCollectibleItems) {
         unlockAchievement("collector")
       }
     }
 
     const handleLevelUp = (e: CustomEvent) => {
-      if (e.detail.level >= 3) {
+      const currentLevel = e.detail.level;
+
+      if (currentLevel >= 3) {
         unlockAchievement("master")
       }
     }
@@ -88,27 +115,6 @@ export function AchievementBadges() {
     }
   }, [])
 
-  const unlockAchievement = (id: string) => {
-    setUserAchievements((prev) => {
-      const updated = prev.map((achievement) =>
-        achievement.id === id ? { ...achievement, unlocked: true } : achievement,
-      )
-
-      // Save to localStorage
-      localStorage.setItem("portfolioAchievements", JSON.stringify(updated))
-
-      // Show notification for newly unlocked achievement
-      const newlyUnlocked = updated.find((a) => a.id === id && a.initialUnlocked)
-      if (newlyUnlocked && !prev.find((a) => a.id === id)?.initialUnlocked) {
-        setNewAchievement(newlyUnlocked)
-        setShowNotification(true)
-        setTimeout(() => setShowNotification(false), 3000)
-      }
-
-      return updated
-    })
-  }
-
   return (
     <div>
       <h3 className="text-xl font-bold text-yellow-300 mb-4">{ARCHIVEMENTS.name}</h3>
@@ -118,7 +124,7 @@ export function AchievementBadges() {
             key={achievement.id}
             className={cn(
               "flex flex-col items-center justify-center p-3 rounded-lg text-center transition-all",
-              achievement.initialUnlocked
+              achievement.unlocked
                 ? "bg-indigo-800 border-2 border-yellow-400"
                 : "bg-indigo-900/50 border-2 border-gray-700 opacity-50",
             )}
@@ -126,7 +132,7 @@ export function AchievementBadges() {
             <div
               className={cn(
                 "w-10 h-10 rounded-full flex items-center justify-center mb-2",
-                achievement.initialUnlocked ? "bg-yellow-400 text-indigo-900" : "bg-gray-700 text-gray-500",
+                achievement.unlocked ? "bg-yellow-400 text-indigo-900" : "bg-gray-700 text-gray-500",
               )}
             >
               {renderIcon(achievement.iconType)}
