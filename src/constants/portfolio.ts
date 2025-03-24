@@ -5,7 +5,7 @@ export const PORTFOLIO_ITEMS = {
         {
             title: 'FIRE RAGE',
             description: 'FIRE RAGE — многопользовательский VR-шутер, разработанный для VR-арен.\nhttps://fire-rage.ru/',
-            videoFileName: 'fire-rage.mp4',
+            videoFileName: 'firerage.mp4',
             id: 'fire-rage',
             cards: [
                 {
