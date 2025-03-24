@@ -21,8 +21,8 @@ export const ARCHIVEMENTS = {
         },
         {
             id: "collector",
-            name: "Коллекционер",
-            description: "Нашел предметы коллекционирования",
+            name: "Консольшик",
+            description: "Нажал на все геймпады",
             unlocked: false,
             iconType: "gamepad2",
         },
@@ -36,7 +36,7 @@ export const ARCHIVEMENTS = {
         {
             id: "master",
             name: "Мастер портфолио",
-            description: "Изучил портфолио",
+            description: "Получил все достижения",
             unlocked: false,
             iconType: "medal",
         },
