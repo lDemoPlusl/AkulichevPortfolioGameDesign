@@ -1,0 +1,1 @@
+export const ACHIEVEMENT_UNLOCKED_TEXT = "Достижение разблокировано!";

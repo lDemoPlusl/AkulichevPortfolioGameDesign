@@ -4,6 +4,7 @@ import {cn} from "@/lib/utils";
 import {ARCHIVEMENTS} from "@/constants/archivements";
 import {PORTFOLIO_ITEMS} from "@/constants/portfolio";
 import {useExp} from "@/context/exp";
+import {ACHIEVEMENT_UNLOCKED_TEXT} from "@/constants/achievement-unlocked-text";
 
 // Add this function to render the appropriate icon based on iconType
 const renderIcon = (iconType: string) => {
@@ -154,7 +155,7 @@ export function AchievementBadges() {
           <div className="flex items-center">
             <div className="mr-3">{renderIcon(newAchievement.iconType)}</div>
             <div>
-              <h4 className="font-bold">Achievement Unlocked!</h4>
+              <h4 className="font-bold">{ACHIEVEMENT_UNLOCKED_TEXT}</h4>
               <p className="text-sm">{newAchievement.name}</p>
             </div>
           </div>
