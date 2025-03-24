@@ -1,8 +1,11 @@
 import {Generated} from "./Generated.tsx";
+import {ExpProvider} from "@/context/exp";
 
 function App() {
 
-  return <Generated />
+  return <ExpProvider>
+    <Generated />
+  </ExpProvider>
 }
 
 export default App

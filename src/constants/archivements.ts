@@ -1,5 +1,9 @@
 export const ARCHIVEMENTS = {
     name: "Достижения",
+    bar: {
+        defaultText: "Исследование",
+        allUnlockedText: "Портфолио изучено!",
+    },
     cards: [
         {
             id: "visitor",
@@ -38,4 +42,3 @@ export const ARCHIVEMENTS = {
         },
     ]
 }
-// ]

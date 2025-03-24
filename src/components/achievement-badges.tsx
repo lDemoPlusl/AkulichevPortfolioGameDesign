@@ -3,6 +3,7 @@ import {Award, Gamepad2, Medal, Star, Trophy} from "lucide-react"
 import {cn} from "@/lib/utils";
 import {ARCHIVEMENTS} from "@/constants/archivements";
 import {PORTFOLIO_ITEMS} from "@/constants/portfolio";
+import {useExp} from "@/context/exp";
 
 // Add this function to render the appropriate icon based on iconType
 const renderIcon = (iconType: string) => {
@@ -26,12 +27,22 @@ export function AchievementBadges() {
   const [userAchievements, setUserAchievements] = useState(ARCHIVEMENTS.cards)
   const [showNotification, setShowNotification] = useState(false)
   const [newAchievement, setNewAchievement] = useState<(typeof ARCHIVEMENTS.cards)[0] | null>(null)
+  const {setXp} = useExp();
 
   const unlockAchievement = (id: string) => {
     setUserAchievements((prev) => {
-      const updated = prev.map((achievement) =>
+      let updated = prev.map((achievement) =>
           achievement.id === id ? { ...achievement, unlocked: true } : achievement,
       );
+      const numberOfAchievements = updated.reduce((a, {unlocked}) => a + (unlocked ? 1 : 0), 0);
+      console.log(numberOfAchievements, numberOfAchievements === ARCHIVEMENTS.cards.length - 1)
+      if (numberOfAchievements === ARCHIVEMENTS.cards.length - 1) {
+        updated = prev.map((achievement) =>
+            ({ ...achievement, unlocked: true })
+        );
+      }
+
+      setXp(updated.reduce((a, {unlocked}) => a + (unlocked ? 1 : 0), 0))
 
       // Save to localStorage
       localStorage.setItem("portfolioAchievements", JSON.stringify(updated))
